@@ -27,11 +27,11 @@ public class BioLoesCNFReader {
             if(filepath.endsWith(".cnf")){
                 return true;
             } else{
-                System.err.println("The file that was given, is not a valid .cnf file" +  filepath);
+                System.err.println("The file that was given, is not a valid .cnf file " +  filepath);
                 return false;
             }
         } else{
-            System.err.println("The file that you want to read does not exists" + filepath);
+            System.err.println("The file that you want to read does not exists " + filepath);
             return false;
         }
     }
