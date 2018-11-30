@@ -18,10 +18,14 @@ public class BioLoesCNFReader {
     private boolean checkcnffile(String filepath) {
         File file = new File(filepath);
         if(file.exists()){
-
-            return true;
+            if(filepath.endsWith(".cnf")){
+                return true;
+            } else{
+                System.err.println("The file that was given, is not a valid .cnf file" +  filepath);
+                return false;
+            }
         } else{
-            System.err.println("CNF file that you want to read does not exists" + filepath);
+            System.err.println("The file that you want to read does not exists" + filepath);
             return false;
         }
     }
