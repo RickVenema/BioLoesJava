@@ -5,15 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BioLoesCNFReader {
+
     public BioLoesDBOptions read(String filepath){
         if( checkcnffile(filepath)){
             List<String> records = openFile(filepath);
+            for(String record: records){
+                System.out.println("record = " + record);
+
+            }
         } else{
             System.err.println("Something went wrong, please read error log for more information");
         }
 
         return null;
     }
+
 
     private boolean checkcnffile(String filepath) {
         File file = new File(filepath);
