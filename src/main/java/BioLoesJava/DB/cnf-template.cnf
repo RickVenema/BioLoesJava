@@ -1,0 +1,9 @@
+#
+# Comments can be added using "#" before a line
+#
+
+[client]
+user=user
+password=password
+host=host
+database=database
