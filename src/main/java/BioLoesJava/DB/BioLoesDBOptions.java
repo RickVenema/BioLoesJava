@@ -6,7 +6,7 @@ public class BioLoesDBOptions {
     private final String host;
     private final String database;
 
-    public BioLoesDBOptions(String password, String username, String host, String database) {
+    public BioLoesDBOptions(String username, String password, String host, String database) {
         this.password = password;
         this.username = username;
         this.host = host;

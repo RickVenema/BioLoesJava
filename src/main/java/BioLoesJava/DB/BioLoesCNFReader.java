@@ -10,29 +10,35 @@ public class BioLoesCNFReader {
 
     public BioLoesDBOptions read(String filepath){
         if( checkcnffile(filepath)){
-            List<String> records = openFile(filepath);
-            Map<String, String> parsed_cnf = new HashMap<>();
-            for(String record: records){
-                System.out.println("record = " + record);
-                if(record.startsWith("user=")){
-                    String[] tmp = record.split("user=");
-                    parsed_cnf.put("user", tmp[1]);
-                } else if(record.startsWith("password=")){
-                    String[] tmp = record.split("password=");
-                    parsed_cnf.put("password", tmp[1]);
-                }else if(record.startsWith("database=")){
-                    String[] tmp = record.split("database=");
-                    parsed_cnf.put("database", tmp[1]);
-                }else if(record.startsWith("host=")){
-                    String[] tmp = record.split("host=");
-                    parsed_cnf.put("host", tmp[1]);
-                }
-            }
+            Map<String, String> parsed_cnf = parseCNF(filepath);
+            BioLoesDBOptions dbOptions = new BioLoesDBOptions(parsed_cnf.get("user"), parsed_cnf.get("password"), parsed_cnf.get("host"), parsed_cnf.get("database"));
+            return dbOptions;
         } else{
             System.err.println("Something went wrong, please read error log for more information");
         }
 
         return null;
+    }
+
+    private Map<String, String> parseCNF(String filepath) {
+        List<String> records = openFile(filepath);
+        Map<String, String> parsed_cnf = new HashMap<>();
+        for(String record: records){
+            if(record.startsWith("user=")){
+                String[] tmp = record.split("user=");
+                parsed_cnf.put("user", tmp[1]);
+            } else if(record.startsWith("password=")){
+                String[] tmp = record.split("password=");
+                parsed_cnf.put("password", tmp[1]);
+            }else if(record.startsWith("database=")){
+                String[] tmp = record.split("database=");
+                parsed_cnf.put("database", tmp[1]);
+            }else if(record.startsWith("host=")){
+                String[] tmp = record.split("host=");
+                parsed_cnf.put("host", tmp[1]);
+            }
+        }
+        return parsed_cnf;
     }
 
 

@@ -6,6 +6,8 @@ public class BioLoesDBConnectorMySQL extends BioLoesDBConnectorBase {
     public void connect(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
+            BioLoesPropertiesReader propertiesReader = new BioLoesPropertiesReader();
+            propertiesReader.getDBUser();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
