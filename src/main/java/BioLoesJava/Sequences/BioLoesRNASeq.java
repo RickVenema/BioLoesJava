@@ -22,16 +22,7 @@ public class BioLoesRNASeq extends BioLoesSeq{
         return outcome;
     }
     public float getGCContent(){
-        int counter = 0;
-        int total = getSequence().length();
-
-        for(char nuc:getSequence().toCharArray()){
-            switch(nuc){
-                case 'C': counter++; break;
-                case 'G': counter++; break;
-            }
-        }
-
-        return (float)counter/ (float)total;
+        BioLoesSeqUtils utils = new BioLoesSeqUtils();
+        return utils.getGCContent(getSequence());
     }
 }

@@ -21,5 +21,10 @@ public class BioLoesDNASeq extends BioLoesSeq{
         }
         return outcome;
     }
+
+    public float getGCContent(){
+        BioLoesSeqUtils utils = new BioLoesSeqUtils();
+        return utils.getGCContent(getSequence());
+    }
 }
 
