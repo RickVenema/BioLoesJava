@@ -26,5 +26,9 @@ public class BioLoesDNASeq extends BioLoesSeq{
         BioLoesSeqUtils utils = new BioLoesSeqUtils();
         return utils.getGCContent(getSequence());
     }
+
+    public String getReversedComplement(){
+        return new StringBuilder(getComplement()).reverse().toString();
+    }
 }
 
