@@ -14,7 +14,7 @@ public class BioLoesRNASeq extends BioLoesSeq{
         for(char nuc:sequence.toCharArray()){
             switch(nuc){
                 case 'A': outcome = outcome.concat("U"); break;
-                case 'U': outcome = outcome.concat("T"); break;
+                case 'U': outcome = outcome.concat("A"); break;
                 case 'C': outcome = outcome.concat("G"); break;
                 case 'G': outcome = outcome.concat("C"); break;
             }

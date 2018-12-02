@@ -8,7 +8,18 @@ public class BioLoesDNASeq extends BioLoesSeq{
 
     @Override
     public String getComplement() {
-        return null;
+        String outcome = "";
+        String sequence = getSequence();
+
+        for(char nuc:sequence.toCharArray()){
+            switch(nuc){
+                case 'A': outcome = outcome.concat("T"); break;
+                case 'T': outcome = outcome.concat("A"); break;
+                case 'C': outcome = outcome.concat("G"); break;
+                case 'G': outcome = outcome.concat("C"); break;
+            }
+        }
+        return outcome;
     }
 }
 
