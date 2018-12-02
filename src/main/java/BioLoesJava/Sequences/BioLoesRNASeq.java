@@ -29,4 +29,8 @@ public class BioLoesRNASeq extends BioLoesSeq{
     public String getReversedComplement(){
         return new StringBuilder(getComplement()).reverse().toString();
     }
+
+    public BioLoesProteinSeq convertToProtein(){
+        return new BioLoesProteinSeq();
+    }
 }

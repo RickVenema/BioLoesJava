@@ -4,7 +4,7 @@ public abstract class BioLoesSeq implements BioLoesAbstractSeq{
     private String sequence;
 
 
-    public void setSequence(String sequence) {
+    void setSequence(String sequence) {
         this.sequence = sequence;
     }
 

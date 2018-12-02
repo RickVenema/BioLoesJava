@@ -32,7 +32,7 @@ public class BioLoesDNASeq extends BioLoesSeq{
     }
 
     public BioLoesRNASeq convertToRNA(){
-        return new BioLoesRNASeq(getComplement());
+        return new BioLoesRNASeq(getSequence().replace('T', 'U'));
     }
 }
 
